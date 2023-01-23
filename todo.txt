@@ -1,0 +1,1 @@
+https://www.javadevjournal.com/spring-boot/loading-initial-data-with-spring-boot/

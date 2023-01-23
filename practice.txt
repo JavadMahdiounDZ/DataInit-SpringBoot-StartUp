@@ -1,0 +1,15 @@
+create a multiprofile spring boot project
+name one of them dev
+then using this config to initialize the data in spring boot startup in h2 database
+
+https://stackoverflow.com/questions/50361004/schema-sql-not-found-on-classpath-for-a-spring-application
+
+@Autowired
+Environment env;
+
+// If the environment is dev, then run schema.sql to reinitialize the schema and repopulate test data
+        if(env.getActiveProfiles()[0].equalsIgnoreCase("dev")) {
+            Resource resource = new ClassPathResource("schema.sql");
+            ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator(resource);
+            databasePopulator.execute(dataSource);
+        }
